@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  position: relative;
+  width: 100%;
+}
+main header {
+  height: 109vh;
+  width: 100%;
+  overflow: hidden;
+}
+main header #cursor {
+  height: 2.8%;
+  width: 1.5%;
+  background-color: #0a0a0a;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 9;
+  box-shadow: 0px 0px 10px 1px #000000;
+  display: none;
+}
+main header nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: top 0.3s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  z-index: 20;
+}
+main header nav #logo {
+  height: 7%;
+  width: 4%;
+  margin-left: 1rem;
+  margin-right: 10rem;
+}
+main header nav #logo img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main header nav #nav-middle {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: center;
+}
+main header nav #nav-middle a {
+  text-decoration: none;
+  font-family: funnel display medium;
+  color: black;
+}
+main header nav #nav-middle a:hover {
+  color: rgba(17, 17, 17, 0.5333333333);
+}
+main header nav #nav-last {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+main header nav #nav-last #search-bar {
+  display: flex;
+  border-radius: 50px;
+  border: 2px solid #111;
+  width: 100%;
+}
+main header nav #nav-last #search-bar i {
+  font-size: 1.3em;
+}
+main header nav #nav-last #search-bar .search-icon {
+  margin-left: 0.2rem;
+  margin-top: 0.3rem;
+  border-radius: 50% 0 0 50%;
+  background-color: transparent;
+}
+main header nav #nav-last #search-bar #nav-search {
+  border: none;
+  padding: 0.2rem;
+  width: 10vw;
+  border-radius: 0 50px 50px 0;
+  font-size: 1rem;
+  font-family: funnel display medium;
+  outline: none;
+  background-color: transparent;
+  color: black;
+}
+main header nav #nav-last #search-bar #nav-search:active {
+  background-color: transparent;
+}
+main header nav #nav-last #search-bar #nav-search::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+main header nav #nav-last .cart {
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 50%;
+}
+main header nav #nav-last .cart:hover,
+main header nav #nav-last .cart:active {
+  cursor: pointer;
+}
+main header nav #nav-last .user {
+  font-size: 1.7rem;
+}
+main header nav #nav-last .user:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=men.css.map */

@@ -1,12 +1,11 @@
-import './style.css';
+import '../styles/style.css';  
 import Lenis from 'lenis';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Swiper from 'swiper';
 import 'swiper/css';
-import 'remixicon/fonts/remixicon.css';
 
-gsap.registerPlugin(ScrollTrigger); 
+gsap.registerPlugin(ScrollTrigger);
 
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: "auto", // or use a number like 3 or 4
@@ -51,7 +50,7 @@ page1.addEventListener("mouseleave", () => {
   cursr.style.opacity = 0;
 });
 
-// Initialize Lenis 
+// Initialize Lenis
 const lenis = new Lenis();
 
 // Use requestAnimationFrame to continuously update the scroll
@@ -66,23 +65,44 @@ let tl = gsap.timeline();
 //loader animation
 // var tl2 = gsap.timeline();
 function loaderAnimation() {
-  tl.from('#loader h3',{
-    x:40,
-    opacity:0,
-    delay:.5,
-    duration:1,
-    stagger:0.1,
-  })
-  tl.to('#loader h3',{
-    opacity:0,
-    duration:1,
-    stagger:-0.1,
-  })
-  tl.to('#loader',{
-    height:0,
-  duration:1,
-  ease:"power2.inOut",
-})
+  // Disable scrolling by adding the no-scroll class
+  document.body.classList.add('no-scroll');
+
+  // Animate the text elements
+  tl.from('#loader h3', {
+    x: 40,
+    opacity: 0,
+    delay: .5,
+    duration: 1,
+    stagger: 0.1,
+  });
+
+  // After loading is complete
+  tl.to('#loader h3', {
+    opacity: 0,
+    duration: 1,
+    stagger: -0.1,
+    delay: 1,
+  });
+
+  // Hide the loading bar and text
+  tl.to('#loader', {
+    opacity: 0,
+    duration: 0.5,
+  }, "-=0.5");
+
+  // Finally hide the entire loader
+  tl.to('.loading', {
+    duration: 1,
+    ease: "power2.inOut",
+    opacity: 0,
+    onComplete: function() {
+      // Remove no-scroll class to enable scrolling
+      document.body.classList.remove('no-scroll');
+      // Hide loader completely
+      document.querySelector('.loading').style.display = 'none';
+    },
+  });
 }
 loaderAnimation();
 //landing page animation
@@ -105,23 +125,21 @@ function landingPageAnimation() {
 landingPageAnimation();
 
 // page2 animation
-function page2Animation() {
-  pageImg.addEventListener('mouseenter',() => {
-    promoVid.play();
-    pageImg.style.display = "none";
-    promoVid.style.display = "initial";
-    promoVid.style.scale = "1";
-  })
-  pageImg.addEventListener('mouseleave',() => {
-    promoVid.pause();
-    pageImg.style.display = "initial";
-    promoVid.style.display = "none";
-    // promoVid.style.scale = "0";
-    // promoVid.style.opacity = "0";
-    promoVid.currentTime = 0;
-  })
-}
-page2Animation();
+// function page2Animation() {
+//   pageImg.addEventListener('mouseenter',() => {
+//     promoVid.play();
+//     pageImg.style.display = "none";
+//     promoVid.style.display = "initial";
+//     promoVid.style.scale = "1";
+//   })
+//   pageImg.addEventListener('mouseleave',() => {
+//     promoVid.pause();
+//     pageImg.style.display = "initial";
+//     promoVid.style.display = "none";
+//     promoVid.currentTime = 0;
+//   })
+// }
+// page2Animation();
 
 // Navbar scroll feature
 function navBarScrollAnimation() {
@@ -145,6 +163,46 @@ navBarScrollAnimation();
 let flag = 0;
 let shop = document.querySelector("#shop");
 let cartBtn = document.querySelector(".cart");
+
+const promo = document.querySelector('.promo');
+    const follower = document.getElementById('mouseFollower');
+
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+    let animationFrame;
+
+    function animateFollower() {
+      const speed = 0.1;
+      currentX += (mouseX - currentX) * speed;
+      currentY += (mouseY - currentY) * speed;
+
+      follower.style.left = `${currentX}px`;
+      follower.style.top = `${currentY}px`;
+
+      animationFrame = requestAnimationFrame(animateFollower);
+    }
+
+    function updateTargetPosition(e) {
+      const rect = imageA.getBoundingClientRect();
+      mouseX = e.clientX - rect.left - follower.offsetWidth / 2;
+      mouseY = e.clientY - rect.top - follower.offsetHeight / 2;
+    }
+
+    imageA.addEventListener('mouseenter', (e) => {
+      follower.classList.add('active');
+      updateTargetPosition(e);
+      cancelAnimationFrame(animationFrame);
+      animateFollower();
+    });
+
+    imageA.addEventListener('mousemove', (e) => {
+      updateTargetPosition(e);
+    });
+
+    imageA.addEventListener('mouseleave', () => {
+      follower.classList.remove('active');
+      cancelAnimationFrame(animationFrame);
+    });
 
 // Animation for promo video
 // tl.from("#promo video",{
@@ -255,13 +313,13 @@ let cartBtn = document.querySelector(".cart");
 //                 <h3 class="price">$${elem.price}</h3>
 //             </div>
 //     </div>
-//   </div> 
+//   </div>
 //   `
 // })
-                  
 
-// var trending = document.querySelector("#page3 .mySwiper"); 
-// trending.innerHTML = sum;  
+
+// var trending = document.querySelector("#page3 .mySwiper");
+// trending.innerHTML = sum;
 
 let twitterIcon = document.querySelector(".social-icons #twitter");
 let facebookIcon = document.querySelector(".social-icons #facebook");
@@ -305,3 +363,7 @@ function cartHoverDesgin(){
   })
 }
 cartHoverDesgin();
+
+
+
+

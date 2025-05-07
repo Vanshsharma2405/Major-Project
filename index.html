@@ -6,7 +6,7 @@
     <title>Nike. Just Do It. Nike IN</title>
     <link
       rel="shortcut icon"
-      href="https://www.nike.com/favicon.ico?v=1"
+      href="./assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link
@@ -19,27 +19,30 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body class="scroll-down">
-    <!-- <div id="loader">
-        <h3>Just</h3>
-        <h3>Do</h3>
-        <h3>It!</h3>
-        <img src="./assets/images/nikelogo.webp" alt="">
-    </div> -->
+  <body class="no-scroll">
+    <div class="loading">
+      <div id="loader">
+        <h3>Every</h3>
+        <h3>Step</h3>
+        <h3>Your</h3>
+        <h3>Style</h3>
+      </div>
+    </div>
     <main>
       <header>
         <div id="cursor"></div>
         <nav>
           <div id="logo">
             <a href="index.html"
-              ><img src="./assets/images/nikelogo.webp" alt="" loading="lazy"
+              ><img src="./assets/images/stepstyle_inverted-removebg-preview.png" alt="" loading="lazy"
             /></a>
           </div>
           <div id="nav-middle">
             <a href="#">New & Featured</a>
-            <a href="#">Men</a>
+            <a href="./Pages/men.html">Men</a>
             <a href="#">Women</a>
             <a href="#">Kids</a>
             <a href="#">Sale</a>
@@ -71,17 +74,21 @@
       <section id="page2">
         <div class="promo">
           <img src="./assets/images/W+AIR+MAX+DN8(back).jpeg" alt="" />
-          <video muted loop src="/assets/videos/air max.mp4"></video>
+          <div class="mouse-video" id="mouseFollower">
+            <video autoplay playsinline muted loop src="/assets/videos/air max.mp4"></video>
+          </div>
           <img id="AirMaxLogo" src="./assets/images/AirMaxLogo.png" alt="">
         </div>
         <div class="promo">
           <!-- Fixed the class name here -->
           <img src="./assets/images/vortex-4-min.jpeg" alt="" />
-          <video
-            muted
-            loop
-            src="/assets/videos/mercurial dream speed 8.mp4"
-          ></video>
+          <div class="mouse-video">
+            <video
+              muted
+              loop
+              src="/assets/videos/mercurial dream speed 8.mp4"
+            ></video>
+          </div>
         </div>
         <div class="promo">
           <!-- Added a new promo section -->
@@ -90,12 +97,16 @@
             src="./assets/images/AirMax 1000.jpg"
             alt=""
           />
-          <video muted loop src="/assets/videos/air imagine sport .mp4"></video>
+          <div class="mouse-video">
+            <video autoplay playsinline muted loop src="/assets/videos/air imagine sport .mp4"></video>
+          </div>
         </div>
         <div class="promo">
           <!-- Added a new promo section -->
           <img src="./assets/images/Sneaker Black.jpeg" alt="" />
-          <video muted loop src="/assets/videos/nike RTFKT.mp4"></video>
+          <div class="mouse-video">
+            <video autoplay playsinline muted loop src="/assets/videos/nike RTFKT.mp4"></video>
+          </div>
         </div>
       </section>
       <section id="page3">
@@ -235,11 +246,11 @@
           <div class="footer-part">
             <div class="footer-section logo-footer">
               <img
-                src="./assets/images/nike-white-logo.png"
+                src="./assets/images/step-style-logo-removebg.png"
                 class="logo"
                 alt="Nike Logo"
               />
-              <p>© 2019 NIKE<br />All Rights Reserved</p>
+              <p>© 2019 StepStyle<br />All Rights Reserved</p>
             </div>
 
             <div class="footer-section">
@@ -297,6 +308,8 @@
         </footer>
       </section>
     </main>
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>
+
+
