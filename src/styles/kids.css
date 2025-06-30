@@ -2,7 +2,6 @@
 /* Import base styles */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
-@import 'remixicon/fonts/remixicon.css';
 @font-face {
   font-family: "Gilroy-Regular";
   src: url("./assets/fonts/Gilroy-Regular.ttf");
@@ -1166,7 +1165,6 @@ main::selection {
 }
 
 /* Import Google Fonts */
-/* Import Remix Icons */
 /* Variables */
 :root {
   --primary-color: #FF5757;
