@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - StepStyle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="../src/styles/checkout.css">
+    <link rel="stylesheet" href="../src/css/search-results.css">
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+
+    <!-- Checkout Container -->
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <a href="javascript:history.back()" class="back-link">
+                <i class="ri-arrow-left-line"></i>
+            </a>
+            <h1>Checkout</h1>
+        </div>
+
+        <div class="checkout-content">
+            <!-- Checkout Steps -->
+            <div class="checkout-steps">
+                <!-- Contact Information Section -->
+                <div class="checkout-step active" id="contact-step">
+                    <div class="step-header">
+                        <span class="step-number">1.</span>
+                        <h2>Contact information</h2>
+                        <i class="ri-arrow-down-s-line step-arrow"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">FIRST NAME</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">LAST NAME</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter last name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group phone-group">
+                                <label for="phone">PHONE</label>
+                                <div class="phone-input-container">
+                                    <div class="country-code">
+                                        <div class="custom-select">
+                                            <div class="selected-option">+91 (India)</div>
+                                            <div class="arrow-container">
+                                                <i class="ri-arrow-down-s-line"></i>
+                                            </div>
+                                            <select id="country-code-select" style="opacity: 0; position: absolute; width: 100%; height: 100%; top: 0; left: 0;">
+                                                <option value="+91" data-flag="in" selected>+91 (India)</option>
+                                                <option value="+1" data-flag="us">+1 (USA)</option>
+                                                <option value="+44" data-flag="gb">+44 (UK)</option>
+                                                <option value="+61" data-flag="au">+61 (Australia)</option>
+                                                <option value="+86" data-flag="cn">+86 (China)</option>
+                                                <option value="+49" data-flag="de">+49 (Germany)</option>
+                                                <option value="+33" data-flag="fr">+33 (France)</option>
+                                                <option value="+81" data-flag="jp">+81 (Japan)</option>
+                                                <option value="+7" data-flag="ru">+7 (Russia)</option>
+                                                <option value="+55" data-flag="br">+55 (Brazil)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <input type="tel" id="phone" name="phone" placeholder="9876543210" required>
+                                </div>
+                                <div class="input-success" style="display: none;"><i class="ri-check-line"></i></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-MAIL</label>
+                                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Method Section -->
+                <div class="checkout-step" id="delivery-step">
+                    <div class="step-header">
+                        <span class="step-number">2.</span>
+                        <h2>Delivery method</h2>
+                        <i class="ri-arrow-down-s-line step-arrow"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="deliveryMethod" value="store">
+                                <div class="option-content">
+                                    <i class="ri-store-2-line"></i>
+                                    <span>Store</span>
+                                </div>
+                            </label>
+                            <label class="delivery-option selected">
+                                <input type="radio" name="deliveryMethod" value="delivery" checked>
+                                <div class="option-content">
+                                    <i class="ri-truck-line"></i>
+                                    <span>Delivery</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="deliveryDate">DELIVERY DATE</label>
+                                <div class="date-input">
+                                    <input type="text" id="deliveryDate" name="deliveryDate" value="November 25th, 2023" readonly>
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryTime">CONVENIENT TIME</label>
+                                <div class="time-input">
+                                    <input type="text" id="deliveryTime" name="deliveryTime" value="1 pm - 6 pm" readonly>
+                                    <i class="ri-time-line"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">COUNTRY</label>
+                                <div class="select-container">
+                                    <select id="country" name="country">
+                                        <option value="india" selected>India</option>
+                                        <option value="usa">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="australia">Australia</option>
+                                        <option value="canada">Canada</option>
+                                        <option value="germany">Germany</option>
+                                        <option value="france">France</option>
+                                        <option value="japan">Japan</option>
+                                        <option value="china">China</option>
+                                        <option value="brazil">Brazil</option>
+                                    </select>
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">CITY</label>
+                                <div class="select-container">
+                                    <select id="city" name="city">
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="delhi">Delhi</option>
+                                        <option value="bangalore">Bangalore</option>
+                                        <option value="hyderabad">Hyderabad</option>
+                                        <option value="chennai">Chennai</option>
+                                        <option value="kolkata">Kolkata</option>
+                                        <option value="pune">Pune</option>
+                                        <option value="ahmedabad">Ahmedabad</option>
+                                    </select>
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address">ADDRESS</label>
+                                <input type="text" id="address" name="address" placeholder="House No., Street Name" required>
+                            </div>
+                            <div class="form-group" style="position: relative;">
+                                <label for="zipCode">PIN CODE</label>
+                                <input type="text" id="zipCode" name="zipCode" placeholder="400001" required>
+                                <div class="input-success pin-success" style="display: none;"><i class="ri-check-line"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method Section -->
+                <div class="checkout-step disabled" id="payment-step">
+                    <div class="step-header">
+                        <span class="step-number">3.</span>
+                        <h2>Payment method</h2>
+                        <i class="ri-arrow-down-s-line step-arrow"></i>
+                        <div class="step-lock">
+                            <i class="ri-lock-line"></i>
+                        </div>
+                    </div>
+                    <div class="step-content" style="display: none;">
+                        <div class="payment-options">
+                            <label class="payment-option selected">
+                                <input type="radio" name="paymentMethod" value="mastercard" checked>
+                                <div class="option-content" style="height: 80px;">
+                                    <img src="../assets/images/mastercard.svg" alt="Mastercard" style="height: 40px;">
+                                    <span style="margin-top: 8px; font-size: 0.9rem; font-weight: bold; color: #333;">Mastercard</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="visa">
+                                <div class="option-content" style="height: 80px;">
+                                    <img src="../assets/images/visa.svg" alt="Visa" style="height: 40px;">
+                                    <span style="margin-top: 8px; font-size: 0.9rem; font-weight: bold; color: #333;">Visa</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="upi">
+                                <div class="option-content" style="height: 80px; background-color: #f8f8f8;">
+                                    <img src="../assets/images/upi.svg" alt="UPI" style="height: 60px; width: 80px;">
+                                    <span style="margin-top: 8px; font-size: 0.9rem; font-weight: bold; color: #333;">UPI</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="cod">
+                                <div class="option-content" style="height: 80px;">
+                                    <img src="../assets/images/cod.svg" alt="Cash on Delivery" style="height: 40px;">
+                                    <span style="margin-top: 8px; font-size: 0.6rem; font-weight: bold; color: #333;">Cash on delivery</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Payment Gateway Section -->
+                        <div class="payment-gateway" id="payment-gateway">
+                            <div class="payment-form card-payment">
+                                <h3>Card & UPI Payment</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <p>We use Razorpay for secure payments. When you click the checkout button, you'll be able to pay using:</p>
+                                        <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.6;">
+                                            <li>Credit/Debit Cards (Visa, Mastercard, RuPay)</li>
+                                            <li>UPI (Google Pay, PhonePe, Paytm, etc.)</li>
+                                            <li>Netbanking from all major banks</li>
+                                            <li>Wallets (Paytm, PhonePe, Amazon Pay, etc.)</li>
+                                            <li>EMI options from major banks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="secure-payment-info">
+                                    <i class="ri-lock-line"></i>
+                                    <span>Your payment information is secure. We use Razorpay's industry-standard encryption to protect your data.</span>
+                                </div>
+                                <div class="razorpay-badges" style="margin-top: 20px; display: flex; flex-direction: column; align-items: center;">
+                                    <img src="../assets/images/razorpay-logo.png" alt="Powered by Razorpay" style="height: 30px; margin-bottom: 15px;">
+                                    <div class="payment-method-badges" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                                        <img src="../assets/images/visa.svg" alt="Visa" style="height: 30px;">
+                                        <img src="../assets/images/mastercard.svg" alt="Mastercard" style="height: 30px;">
+                                        <img src="../assets/images/rupay.svg" alt="RuPay" style="height: 30px;">
+                                        <img src="../assets/images/upi.svg" alt="UPI" style="height: 30px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-form upi-payment" style="display: none;">
+                                <h3>UPI Payment</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <p>We use Razorpay for secure UPI payments. When you click the checkout button, you'll be able to pay using any UPI app:</p>
+                                        <div class="upi-apps" style="margin-top: 20px;">
+                                            <div class="upi-app-options" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                                                <div class="upi-app-icon" style="text-align: center;">
+                                                   <img src="../assets/images/google-pay.svg" alt="Google Pay" style="height: 40px; width: 40px;">
+                                                   <p style="margin-top: 5px; font-size: 12px;">Google Pay</p>
+                                                </div>
+                                                <div class="upi-app-icon" style="text-align: center;">
+                                                    <img src="../assets/images/phonepe-icon.svg" alt="PhonePe" style="height: 40px; width: 40px;">
+                                                    <p style="margin-top: 5px; font-size: 12px;">PhonePe</p>
+                                                </div>
+                                                <div class="upi-app-icon" style="text-align: center;">
+                                                    <img src="../assets/images/paytm-icon.svg" alt="Paytm" style="height: 40px; width: 40px;">
+                                                    <p style="margin-top: 5px; font-size: 12px;">Paytm</p>
+                                                </div>
+                                                <div class="upi-app-icon" style="text-align: center;">
+                                                    <img src="../assets/images/bhim-upi.svg" alt="BHIM" style="height: 40px; width: 40px;">
+                                                    <p style="margin-top: 5px; font-size: 12px;">BHIM</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="secure-payment-info" style="margin-top: 20px;">
+                                    <i class="ri-shield-check-line"></i>
+                                    <span>UPI payments are secure and instant. Scan the QR code or enter your UPI ID in the Razorpay payment screen.</span>
+                                </div>
+                                <div style="margin-top: 20px; text-align: center;">
+                                    <img src="../assets/images/upi-qr-sample.png" alt="UPI QR Sample" style="max-width: 150px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                                    <p style="margin-top: 10px; font-size: 12px; color: #666;">Sample QR code (actual QR will be shown at checkout)</p>
+                                </div>
+                            </div>
+
+                            <div class="payment-form cod-payment" style="display: none;">
+                                <h3>Cash on Delivery</h3>
+                                <p>You will pay when your order is delivered. Please keep the exact amount ready.</p>
+                                <div class="cod-note">
+                                    <i class="ri-information-line"></i>
+                                    <span>Cash on Delivery may not be available for orders above ₹10,000.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="order-summary">
+                <h2>Order</h2>
+                <div class="order-items">
+                    <!-- Order items will be populated by JavaScript -->
+                </div>
+                <!-- Size and color details removed as requested -->
+                <div class="price-details">
+                    <div class="original-price">
+                        <span class="price-label">₹9,999</span>
+                        <span class="discount-price">₹4,999</span>
+                    </div>
+                </div>
+                <div class="order-total">
+                    <div class="subtotal">
+                        <span>SUBTOTAL</span>
+                        <span class="subtotal-amount">₹9,999</span>
+                    </div>
+                    <div class="discount">
+                        <span>DISCOUNT (50% OFF)</span>
+                        <span class="discount-amount">-₹5,000</span>
+                    </div>
+                    <div class="shipping">
+                        <span>SHIPPING</span>
+                        <span class="shipping-amount">Free</span>
+                    </div>
+                    <div class="total">
+                        <span>TOTAL</span>
+                        <span class="total-amount">₹4,999</span>
+                    </div>
+                </div>
+                <div class="checkout-actions">
+                    <button type="button" id="checkout-btn" class="primary-button" disabled style="opacity: 0.5; cursor: not-allowed;">Checkout</button>
+                    <div class="terms-agreement">
+                        <input type="checkbox" id="terms-checkbox" checked>
+                        <label for="terms-checkbox">
+                            By confirming the order, I accept the <a href="#">terms of the user agreement</a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification">
+        <i class="ri-information-line toast-icon"></i>
+        <span class="toast-message">Notification message</span>
+    </div>
+
+    <!-- Razorpay JS -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- Scripts -->
+    <script type="module" src="../src/js/checkout.js"></script>
+</body>
+</html>

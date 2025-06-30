@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success - StepStyle</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/checkout.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 40px;
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .success-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .order-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .order-details h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .detail-label {
+            color: #666;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-button {
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .primary-button {
+            background-color: #3399cc;
+            color: white;
+            border: none;
+        }
+
+        .primary-button:hover {
+            background-color: #2980b9;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: #3399cc;
+            border: 1px solid #3399cc;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(51, 153, 204, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">
+            <i class="ri-check-line"></i>
+        </div>
+        <h1 class="success-title">Payment Successful!</h1>
+        <p class="success-message">
+            Thank you for your purchase. Your payment has been processed successfully and your order is now being prepared.
+        </p>
+
+        <div class="order-details">
+            <h3>Order Details</h3>
+            <div class="detail-row">
+                <span class="detail-label">Order ID:</span>
+                <span class="detail-value" id="orderId">ORD123456789</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Payment ID:</span>
+                <span class="detail-value" id="paymentId">PAY123456789</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Amount Paid:</span>
+                <span class="detail-value" id="amountPaid">₹4,999.00</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Payment Method:</span>
+                <span class="detail-value" id="paymentMethod">Razorpay</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Date:</span>
+                <span class="detail-value" id="orderDate">June 15, 2023</span>
+            </div>
+        </div>
+
+        <p>
+            You will receive an email confirmation shortly with the details of your order.
+            If you have any questions, please contact our customer support.
+        </p>
+
+        <div class="action-buttons">
+            <a href="index.html" class="action-button secondary-button">
+                <i class="ri-arrow-left-line"></i> Back to Home
+            </a>
+            <a href="#" class="action-button primary-button" id="track-order-btn">
+                Track Order <i class="ri-arrow-right-line"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get order details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('orderId') || 'ORD' + Date.now();
+            const paymentId = urlParams.get('paymentId') || 'PAY' + Date.now();
+            
+            // Get order details from localStorage if available
+            const pendingOrder = localStorage.getItem('stepstyle-pending-order');
+            let orderDetails = {};
+            
+            if (pendingOrder) {
+                try {
+                    orderDetails = JSON.parse(pendingOrder);
+                } catch (error) {
+                    console.error('Error parsing order details:', error);
+                }
+            }
+            
+            // Get cart items and calculate total
+            let cart = [];
+            try {
+                const storedCart = localStorage.getItem('stepstyle-cart');
+                if (storedCart) {
+                    cart = JSON.parse(storedCart);
+                }
+            } catch (error) {
+                console.error('Error loading cart:', error);
+            }
+            
+            // Calculate total amount
+            const totalAmount = cart.reduce((total, item) => total + (item.currentPrice * (item.quantity || 1)), 0);
+            
+            // Update order details in the UI
+            document.getElementById('orderId').textContent = orderId;
+            document.getElementById('paymentId').textContent = paymentId;
+            document.getElementById('amountPaid').textContent = '₹' + (totalAmount || 4999).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            document.getElementById('paymentMethod').textContent = 'Razorpay';
+            document.getElementById('orderDate').textContent = new Date().toLocaleDateString('en-IN', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Clear cart after successful payment
+            localStorage.removeItem('stepstyle-cart');
+            localStorage.removeItem('stepstyle-pending-order');
+            
+            // Track order button
+            const trackOrderBtn = document.getElementById('track-order-btn');
+            if (trackOrderBtn) {
+                trackOrderBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Order tracking will be available soon!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

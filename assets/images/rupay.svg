@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="50" fill="#ffffff"/>
+  <path d="M96 256 L416 256" stroke="#11aa44" stroke-width="20"/>
+  <path d="M96 200 L416 200" stroke="#ff5500" stroke-width="20"/>
+  <path d="M96 312 L416 312" stroke="#095bac" stroke-width="20"/>
+  <text x="256" y="270" font-family="Arial" font-size="60" font-weight="bold" text-anchor="middle" fill="#333333">RuPay</text>
+</svg>

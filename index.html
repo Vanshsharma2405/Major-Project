@@ -3,12 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nike. Just Do It. Nike IN</title>
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
-    />
+    <title>StepStyle</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -20,32 +16,34 @@
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+    <link rel="stylesheet" href="./src/css/search-results.css" />
+    <link rel="stylesheet" href="./src/styles/user-dropdown.css" />
   </head>
   <body class="no-scroll">
-    <div class="loading">
+    <!-- <div class="loading">
       <div id="loader">
         <h3>Every</h3>
         <h3>Step</h3>
         <h3>Your</h3>
         <h3>Style</h3>
-      </div>
+      </div> -->
     </div>
     <main>
       <header>
         <div id="cursor"></div>
         <nav>
           <div id="logo">
-            <a href="index.html"
-              ><img src="./assets/images/stepstyle_inverted-removebg-preview.png" alt="" loading="lazy"
-            /></a>
+            <a href="./index.html"
+              ><img src="./assets/images/stepstyle_inverted-removebg-preview.png" alt="" loading="lazy" />
+            </a>
           </div>
           <div id="nav-middle">
-            <a href="#">New & Featured</a>
-            <a href="./Pages/men.html">Men</a>
-            <a href="#">Women</a>
-            <a href="#">Kids</a>
-            <a href="#">Sale</a>
+            <a href="#" class="active">Home</a>
+            <a href="/Pages/men.html">Men</a>
+            <a href="/Pages/women.html">Women</a>
+            <a href="/Pages/kids.html">Kids</a>
+            <a href="/Pages/about.html">About</a>
           </div>
           <div id="nav-last">
             <div id="search-bar">
@@ -57,8 +55,37 @@
                 id="nav-search"
               />
             </div>
-            <i class="ph ph-shopping-cart cart"></i>
-            <i class="ph ph-user-circle user"></i>
+            <!-- Authentication Buttons -->
+            <div id="auth-buttons" class="auth-buttons">
+              <a href="./Pages/login.html" class="auth-btn login-btn">Sign In</a>
+              <a href="./Pages/login.html" class="auth-btn signup-btn">Sign Up</a>
+            </div>
+
+            <!-- User Profile (hidden by default) -->
+            <div id="user-profile" class="user-profile" style="display: none;">
+              <div class="user-icon-container">
+                <div class="user-avatar">
+                  <i class="ph ph-user user-icon"></i>
+                  <div class="user-status-dot"></div>
+                </div>
+                <div class="user-dropdown">
+                  <div class="dropdown-header">
+                    <div class="user-avatar-large">
+                      <i class="ph ph-user"></i>
+                    </div>
+                    <div class="user-info">
+                      <div class="user-name"></div>
+                      <div class="user-email"></div>
+                    </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <button class="logout-btn dropdown-item">
+                    <i class="ph ph-sign-out"></i>
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </nav>
         <section id="page1">
@@ -74,10 +101,9 @@
       <section id="page2">
         <div class="promo">
           <img src="./assets/images/W+AIR+MAX+DN8(back).jpeg" alt="" />
-          <div class="mouse-video" id="mouseFollower">
+          <div class="mouse-video">
             <video autoplay playsinline muted loop src="/assets/videos/air max.mp4"></video>
           </div>
-          <img id="AirMaxLogo" src="./assets/images/AirMaxLogo.png" alt="">
         </div>
         <div class="promo">
           <!-- Fixed the class name here -->
@@ -92,13 +118,14 @@
         </div>
         <div class="promo">
           <!-- Added a new promo section -->
+           id="airmax"
           <img
             id="AirMax1000"
-            src="./assets/images/AirMax 1000.jpg"
+            src="./assets/images/AirMax 1000.jpg "
             alt=""
           />
           <div class="mouse-video">
-            <video autoplay playsinline muted loop src="/assets/videos/air imagine sport .mp4"></video>
+            <video autoplay playsinline muted loop src="/assets/videos/air max 1000.mp4"></video>
           </div>
         </div>
         <div class="promo">
@@ -242,74 +269,109 @@
             </div>
           </div>
         </div>
-        <footer>
-          <div class="footer-part">
-            <div class="footer-section logo-footer">
-              <img
-                src="./assets/images/step-style-logo-removebg.png"
-                class="logo"
-                alt="Nike Logo"
-              />
-              <p>© 2019 StepStyle<br />All Rights Reserved</p>
-            </div>
-
-            <div class="footer-section">
-              <h4>Info</h4>
+        <footer class="modern-footer">
+          <div class="footer-container">
+            <div class="footer-column">
+              <h3>Shop</h3>
               <ul>
-                <li>Find a store</li>
-                <li>Discount</li>
-                <li>Gift</li>
-                <li>Feedback</li>
-                <li>Become a member</li>
+                <li><a href="/Pages/men.html">Men's Shoes</a></li>
+                <li><a href="/Pages/women.html">Women's Shoes</a></li>
+                <li><a href="#">Kids' Shoes</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <!-- <li><a href="#">Sale</a></li> -->
               </ul>
             </div>
 
-            <div class="footer-section">
-              <h4>Shop</h4>
+            <div class="footer-column">
+              <h3>Help</h3>
               <ul>
-                <li>Man</li>
-                <li>Woman</li>
-                <li>Kids</li>
-                <li>Collections</li>
-                <li>Contacts</li>
+                <li><a href="./Pages/return-policy.html">Returns & Exchanges</a></li>
+                <li><a href="./Pages/refund-policy.html">Refund Policy</a></li>
+                <li><a href="#">Shipping & Delivery</a></li>
+                <li><a href="#">Payment Options</a></li>
+                <li><a href="./Pages/about.html">Contact Us</a></li>
               </ul>
             </div>
 
-            <div class="footer-section footer-icons">
-              <div class="footer-last">
-                <div class="about-social">
-                  <div class="about">
-                    <h4>About</h4>
-                    <ul>
-                      <li>News</li>
-                      <li>Careers</li>
-                    </ul>
-                  </div>
-                  <div class="social-icons">
-                    <i id="twitter" class="ri-twitter-line"></i>
-                    <i id="facebook" class="ri-facebook-fill"></i>
-                    <i id="instagram" class="ri-instagram-line"></i>
-                    <i id="youtube" class="ri-youtube-line"></i>
-                  </div>
-                </div>
+            <div class="footer-column">
+              <h3>About</h3>
+              <ul>
+                <li><a href="/Pages/about.html">About StepStyle</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Investors</a></li>
+                <li><a href="#">Sustainability</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3>Connect with Us</h3>
+              <div class="social-icons">
+                <a href="#" class="social-icon"><i class="ri-facebook-fill"></i></a>
+                <a href="#" class="social-icon"><i class="ri-twitter-fill"></i></a>
+                <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
+                <a href="#" class="social-icon"><i class="ri-youtube-fill"></i></a>
+                <a href="#" class="social-icon"><i class="ri-pinterest-fill"></i></a>
               </div>
 
-              <div class="bottom-note">
-                <span></span>
-                <span>Privacy & Cookie Policy</span>
+              <div class="newsletter">
+                <h4>Sign up for our newsletter</h4>
+                <div class="newsletter-form">
+                  <input type="email" placeholder="Your email address">
+                  <button>Subscribe</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <span></span>
-          <!-- <div class="nike-animate">
-                    <h1>Nike</h1>
-                </div> -->
+          <div class="footer-bottom">
+            <p class="copyright">© 2023 StepStyle. All Rights Reserved.</p>
+            <div class="footer-links">
+              <a href="./Pages/privacy-policy.html">Privacy Policy</a>
+              <a href="./Pages/return-policy.html">Return Policy</a>
+              <a href="./Pages/refund-policy.html">Refund Policy</a>
+              <a href="./Pages/disclaimer.html">Disclaimer</a>
+              <a href="./Pages/terms-of-service.html">Terms of Service</a>
+              <a href="./Pages/about.html">About & Contact</a>
+            </div>
+          </div>
         </footer>
       </section>
     </main>
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+      <div class="cart-modal-content">
+        <div class="cart-header">
+          <h3>Your Cart</h3>
+          <button class="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items">
+          <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span class="total-amount">₹0</span>
+          </div>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification success">
+      <div class="toast-content">
+        <i class="ri-check-line toast-icon"></i>
+        <div class="toast-message">Item added to cart!</div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/js/search.js"></script>
     <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="./src/js/top-picks.js"></script>
+    <script src="./src/js/auth-check.js"></script>
   </body>
 </html>
-
-

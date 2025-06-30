@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StepStyle - Kids Collection</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles/kids.css">
+    <link rel="stylesheet" href="../src/css/search-results.css">
+    <link rel="stylesheet" href="../src/styles/user-dropdown.css">
+</head>
+<body>
+    <main>
+      <header>
+        <nav>
+          <div id="logo">
+            <a href="../index.html">
+              <img src="../assets/images/stepstyle_inverted-removebg-preview.png" alt="StepStyle Logo" loading="lazy" />
+            </a>
+          </div>
+          <div id="nav-middle">
+            <a href="../index.html">Home</a>
+            <a href="./men.html">Men</a>
+            <a href="./women.html">Women</a>
+            <a href="./kids.html" class="active">Kids</a>
+            <a href="./about.html">About</a>
+          </div>
+          <div id="nav-last">
+            <div id="search-bar">
+              <i class="ph ph-magnifying-glass search-icon"></i>
+              <input
+                type="search"
+                placeholder="Search"
+                name="search"
+                id="nav-search"
+              />
+            </div>
+            <div class="cart-icon-container">
+              <i class="ph ph-shopping-cart cart"></i>
+              <span class="cart-count">0</span>
+            </div>
+
+            <!-- Authentication Buttons -->
+            <div id="auth-buttons" class="auth-buttons">
+              <a href="./login.html" class="login-btn">Sign In</a>
+              <a href="./login.html" class="signup-btn">Sign Up</a>
+            </div>
+
+            <!-- User Profile (hidden by default) -->
+            <div id="user-profile" class="user-profile" style="display: none;">
+              <div class="user-icon-container">
+                <div class="user-avatar">
+                  <i class="ph ph-user user-icon"></i>
+                  <div class="user-status-dot"></div>
+                </div>
+                <div class="user-dropdown">
+                  <div class="dropdown-header">
+                    <div class="user-avatar-large">
+                      <i class="ph ph-user"></i>
+                    </div>
+                    <div class="user-info">
+                      <div class="user-name"></div>
+                      <div class="user-email"></div>
+                    </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <button class="logout-btn dropdown-item">
+                    <i class="ph ph-sign-out"></i>
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Fun Steps for Little Feet!</h1>
+              <p>Colorful, comfortable shoes that kids love to wear and parents love to buy!</p>
+              <button class="shop-now-btn">Shop Now</button>
+            </div>
+            <div class="hero-image">
+              <img src="/assets/images/kidshoehead.png" alt="Kids Shoes" />
+            </div>
+          </div>
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+          </div>
+        </section>
+      </header>
+
+      <!-- Kids Collection Section -->
+      <section id="kids-collection">
+        <h2>Kids Collection</h2>
+        <div class="products-grid">
+          <!-- Product cards will be dynamically generated here, but we'll add some manually as well -->
+          <div class="product-card" data-product-id="k1">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="StepStyle Rainbow Runner" loading="lazy">
+              <div class="product-badge">18% OFF</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">StepStyle Rainbow Runner</h3>
+              <div class="product-price">
+                <span class="original-price">₹4295</span>
+                <span class="current-price">₹3495</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="product-card" data-product-id="k2">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="StepStyle Light-Up Adventurer" loading="lazy">
+              <div class="product-badge">16% OFF</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">StepStyle Light-Up Adventurer</h3>
+              <div class="product-price">
+                <span class="original-price">₹4995</span>
+                <span class="current-price">₹4195</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="product-card" data-product-id="k3">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="StepStyle Bounce Master" loading="lazy">
+              <div class="product-badge">17% OFF</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">StepStyle Bounce Master</h3>
+              <div class="product-price">
+                <span class="original-price">₹4595</span>
+                <span class="current-price">₹3795</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="product-card" data-product-id="k4">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="StepStyle Dino Stomper" loading="lazy">
+              <div class="product-badge">17% OFF</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">StepStyle Dino Stomper</h3>
+              <div class="product-price">
+                <span class="original-price">₹4695</span>
+                <span class="current-price">₹3895</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="product-card" data-product-id="k5">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="StepStyle Sparkle Step" loading="lazy">
+              <div class="product-badge">16% OFF</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">StepStyle Sparkle Step</h3>
+              <div class="product-price">
+                <span class="original-price">₹4395</span>
+                <span class="current-price">₹3695</span>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="product-card" data-product-id="k6">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="StepStyle Super Sport" loading="lazy">
+              <div class="product-badge">17% OFF</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">StepStyle Super Sport</h3>
+              <div class="product-price">
+                <span class="original-price">₹4795</span>
+                <span class="current-price">₹3995</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Details Section -->
+      <section id="product-details">
+        <div class="product-details-container">
+          <div class="product-gallery">
+            <div class="thumbnails">
+              <img class="thumbnail active" src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoe View 1" />
+              <img class="thumbnail" src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoe View 2" />
+              <img class="thumbnail" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoe View 3" />
+              <img class="thumbnail" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoe View 4" />
+            </div>
+            <div class="main-image-container">
+              <img id="main-product-image" src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kids Shoe Main View" />
+            </div>
+          </div>
+          <div class="product-info">
+            <h2 class="product-title">StepStyle Rainbow Runner</h2>
+            <div class="price-display">
+              <span class="original-price">₹4295</span>
+              <span class="current-price">₹3495</span>
+              <span class="discount-badge">-18%</span>
+            </div>
+            <div class="product-description">
+              <h3>Description</h3>
+              <p id="product-description-text">Colorful rainbow design that kids absolutely love! These comfortable shoes bring a splash of color to every outfit and are perfect for active play.</p>
+            </div>
+            <div class="size-selector">
+              <h3>Select Size</h3>
+              <div class="size-options">
+                <button class="size-btn">UK 1</button>
+                <button class="size-btn">UK 2</button>
+                <button class="size-btn">UK 3</button>
+                <button class="size-btn">UK 4</button>
+                <button class="size-btn">UK 5</button>
+              </div>
+            </div>
+            <div class="product-actions">
+
+              <button class="back-to-collection-btn">Back to Collection</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features">
+        <h2>Why Kids Love Our Shoes</h2>
+        <div class="features-container">
+          <div class="feature">
+            <i class="ri-shield-star-line"></i>
+            <h3>Super Comfy</h3>
+            <p>Soft cushioning for happy feet all day long. Our shoes are designed with extra padding for maximum comfort.</p>
+          </div>
+          <div class="feature">
+            <i class="ri-footprint-line"></i>
+            <h3>Growing Feet</h3>
+            <p>Designed to support growing feet and active play. The perfect balance of flexibility and support.</p>
+          </div>
+          <div class="feature">
+            <i class="ri-paint-brush-line"></i>
+            <h3>Fun Colors</h3>
+            <p>Bright, playful designs kids love to wear. Choose from a rainbow of exciting colors and patterns.</p>
+          </div>
+          <div class="feature">
+            <i class="ri-heart-line"></i>
+            <h3>Parent Approved</h3>
+            <p>Durable and easy to put on and take off. Made with quality materials that stand up to playground adventures.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section id="reviews">
+        <h2>What Parents Say</h2>
+        <div class="reviews-container">
+          <div class="review-stats">
+            <div class="average-rating">
+              <span class="rating-number">4.9</span>
+              <div class="stars">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+              <span class="total-reviews">Based on 256 happy parents</span>
+            </div>
+          </div>
+
+          <div class="review-carousel">
+            <div class="review-slide active">
+              <div class="review-content">
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Sarah M.</div>
+                  <div class="review-date">12 July 2023</div>
+                </div>
+                <div class="stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+                <p class="review-text">"My 6-year-old loves these shoes! They're comfortable, easy to put on, and the lights make him so happy. Great quality too!"</p>
+              </div>
+            </div>
+            <div class="review-slide">
+              <div class="review-content">
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Michael T.</div>
+                  <div class="review-date">28 June 2023</div>
+                </div>
+                <div class="stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                </div>
+                <p class="review-text">"These are the only shoes my daughter wants to wear now! They're durable enough for playground adventures and still look great after months of use."</p>
+              </div>
+            </div>
+            <div class="review-slide">
+              <div class="review-content">
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Jessica K.</div>
+                  <div class="review-date">15 May 2023</div>
+                </div>
+                <div class="stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+                </div>
+                <p class="review-text">"The rainbow colors are vibrant and my son gets compliments everywhere we go. They're easy to clean and have held up well through many adventures!"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="prev-btn"><i class="ri-arrow-left-s-line"></i></button>
+            <div class="carousel-dots">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <button class="next-btn"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add Comment Section -->
+      <section id="add-comment">
+        <div class="comment-form-container">
+          <h2>Share Your Experience</h2>
+          <p>Help other parents by sharing your thoughts about our kids' shoes!</p>
+
+          <form id="comment-form" class="comment-form">
+            <div class="form-group">
+              <label for="parent-name">Your Name</label>
+              <input type="text" id="parent-name" name="parentName" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="rating">Rating</label>
+              <div class="rating-input">
+                <div class="stars-input">
+                  <i class="ri-star-line" data-rating="1"></i>
+                  <i class="ri-star-line" data-rating="2"></i>
+                  <i class="ri-star-line" data-rating="3"></i>
+                  <i class="ri-star-line" data-rating="4"></i>
+                  <i class="ri-star-line" data-rating="5"></i>
+                </div>
+                <span class="rating-text">Click to rate</span>
+              </div>
+              <input type="hidden" id="rating-value" name="rating" value="0" required>
+            </div>
+
+            <div class="form-group">
+              <label for="comment-text">Your Review</label>
+              <textarea id="comment-text" name="comment" placeholder="Tell us about your experience with our kids' shoes..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-comment-btn">
+              <i class="ri-send-plane-line"></i>
+              Submit Review
+            </button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="./men.html">Men's Shoes</a></li>
+            <li><a href="./women.html">Women's Shoes</a></li>
+            <li><a href="./kids.html">Kids' Shoes</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sale</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="#">Order Status</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Payment Options</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>About</h3>
+          <ul>
+            <li><a href="./about.html">About StepStyle</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Investors</a></li>
+            <li><a href="#">Sustainability</a></li>
+          </ul>
+        </div>
+        <div class="footer-column social">
+          <h3>Connect with Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-twitter-fill"></i></a>
+            <a href="#"><i class="ri-instagram-line"></i></a>
+            <a href="#"><i class="ri-youtube-fill"></i></a>
+            <a href="#"><i class="ri-pinterest-fill"></i></a>
+          </div>
+          <div class="newsletter">
+            <h4>Sign up for our newsletter</h4>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Your email address">
+              <button>Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2023 StepStyle. All Rights Reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="./privacy-policy.html">Privacy Policy</a>
+          <a href="./return-policy.html">Return Policy</a>
+          <a href="./refund-policy.html">Refund Policy</a>
+          <a href="./disclaimer.html">Disclaimer</a>
+          <a href="./terms-of-service.html">Terms of Service</a>
+          <a href="./about.html">About & Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+      <div class="cart-modal-content">
+        <div class="cart-header">
+          <h3>Your Cart</h3>
+          <button class="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items">
+          <!-- Cart items will be dynamically added here -->
+          <div class="empty-cart-message">
+            <p>Your cart is empty</p>
+            <div class="empty-cart-divider"></div>
+          </div>
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span class="total-amount">₹0</span>
+          </div>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification success">
+      <div class="toast-content">
+        <i class="ri-check-line toast-icon"></i>
+        <div class="toast-message">Item added to cart!</div>
+      </div>
+    </div>
+
+    <script type="module" src="../src/js/search.js"></script>
+    <script type="module" src="../src/js/kids.js"></script>
+    <script src="../src/js/auth-check.js"></script>
+  </body>
+</html>

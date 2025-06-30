@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StepStyle</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles/login.css">
+</head>
+<body>
+    <main>
+    <div class="login-container">
+        <!-- Left Side - Dark Section with Animated Shoe -->
+        <div class="left-section">
+            <div class="brand-header">
+                <h1>StepStyle</h1>
+            </div>
+
+            <div class="shoe-container">
+                <img src="/assets/images/nike-airForce.png"
+                     alt="Nike Shoe" class="animated-shoe" id="animatedShoe">
+            </div>
+
+            <div class="brand-footer">
+                <div class="brand-info">
+                    <h3>StepStyle</h3>
+                    <p>Footwear & Fashion</p>
+                </div>
+                <div class="limited-offer">
+                    <img src="/assets/images/limited-offer.png" alt="limited offer logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="right-section">
+            <div class="form-header">
+                <h1>STEPSTYLE</h1>
+                <h2>Welcome Back</h2>
+                <p>Sign in to continue your shopping experience</p>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container" id="formContainer">
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" name="email" placeholder="test0963@gmail.com" required>
+                    </div>
+
+                    <div class="form-group password-field">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input-container">
+                            <input type="password" id="loginPassword" name="password" placeholder="••••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group remember-field">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="forgot-link">
+                        <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                    <div class="signup-link">
+                        Don't have an account? <a href="#" onclick="switchToSignup()">Sign up</a>
+                    </div>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name*</label>
+                        <input type="text" id="signupName" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email*</label>
+                        <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group password-field">
+                        <label for="signupPassword">Password</label>
+                        <div class="password-input-container">
+                            <input type="password" id="signupPassword" name="password" placeholder="••••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group password-field">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-input-container">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••••" required>
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                                <i class="ph ph-eye"></i>
+                            </button>
+                        </div>
+                        <div id="confirmPasswordError" class="error-message"></div>
+                    </div>
+
+                    <div class="form-group terms-field">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="login-btn">Sign Up</button>
+
+                    <div class="signup-link">
+                        Already have an account? <a href="#" onclick="switchToLogin()">Sign in</a>
+                    </div>
+                </form>
+
+                <!-- Forgot Password Form -->
+                <form id="forgotPasswordForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="forgotEmail">Email</label>
+                        <input type="email" id="forgotEmail" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <button type="submit" class="login-btn">Send Reset Link</button>
+
+                    <div class="signup-link">
+                        Remember your password? <a href="#" onclick="switchToLogin()">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notificationContainer" class="notification-container"></div>
+</main>
+    <!-- Scripts -->
+    <script src="../src/js/auth.js"></script>
+    <script src="../src/js/auth-ui.js"></script>
+</body>
+</html>

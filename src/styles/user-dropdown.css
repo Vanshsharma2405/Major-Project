@@ -1,0 +1,410 @@
+/* Authentication Buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+.login-btn, .signup-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    font-family: "Helvetica Now Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: auto;
+    width: auto;
+}
+
+.login-btn {
+    color: #374151;
+    background: transparent;
+}
+
+.login-btn:hover {
+    color: #1f2937;
+    background: #f9fafb;
+}
+
+.signup-btn {
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.signup-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Ensure auth buttons maintain proper width when shown after logout */
+#auth-buttons {
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+/* Override for when auth buttons should be hidden */
+#auth-buttons[style*="display: none"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Override for when auth buttons should be visible */
+#auth-buttons[style*="display: flex"] {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+#auth-buttons .login-btn,
+#auth-buttons .signup-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: auto;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dynamic search bar width based on auth state */
+#nav-last {
+    transition: all 0.3s ease;
+}
+
+#nav-last #search-bar {
+    transition: all 0.3s ease;
+}
+
+#nav-last #search-bar #nav-search {
+    transition: width 0.3s ease;
+}
+
+/* When user is logged in (auth buttons hidden) */
+#nav-last.user-logged-in #search-bar {
+    width: calc(100% + 120px) !important;
+}
+
+#nav-last.user-logged-in #search-bar #nav-search {
+    width: calc(12vw + 120px) !important;
+}
+
+/* When user is logged out (auth buttons visible) */
+#nav-last.user-logged-out #search-bar {
+    width: 100% !important;
+}
+
+#nav-last.user-logged-out #search-bar #nav-search {
+    width: 12vw !important;
+}
+
+/* Import Helvetica Now Display Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* User Profile Dropdown Styles */
+.user-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    font-family: "Helvetica Now Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.user-icon-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-avatar .user-icon {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.user-status-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 12px;
+    height: 12px;
+    background: #4ade80;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(74, 222, 128, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    }
+}
+
+/* Dropdown Menu */
+.user-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-family: "Helvetica Now Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+}
+
+/* Dropdown Header */
+.dropdown-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar-large {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-avatar-large i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 4px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Helvetica Now Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.user-email {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Helvetica Now Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* Dropdown Divider */
+.dropdown-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+    margin: 0 20px;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu {
+    padding: 8px 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #374151;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: "Helvetica Now Display", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.dropdown-item:hover {
+    background: #f9fafb;
+    color: #1f2937;
+}
+
+.dropdown-item i {
+    font-size: 1.1rem;
+    color: #6b7280;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-item:hover i {
+    color: #4f46e5;
+}
+
+/* Logout Button Specific Styling */
+.logout-btn {
+    color: #dc2626 !important;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    background: #fef2f2 !important;
+    color: #b91c1c !important;
+}
+
+.logout-btn i {
+    color: #dc2626 !important;
+}
+
+.logout-btn:hover i {
+    color: #b91c1c !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-dropdown {
+        width: 260px;
+        right: -10px;
+    }
+    
+    .dropdown-header {
+        padding: 16px;
+    }
+    
+    .user-avatar-large {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .user-name {
+        font-size: 1rem;
+    }
+    
+    .user-email {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-dropdown {
+        width: 240px;
+        right: -20px;
+    }
+}
+
+/* Animation for dropdown items */
+.user-dropdown:not(.active) .dropdown-item {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.user-dropdown.active .dropdown-item {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInUp 0.3s ease forwards;
+}
+
+.user-dropdown.active .dropdown-item:nth-child(1) { animation-delay: 0.05s; }
+.user-dropdown.active .dropdown-item:nth-child(2) { animation-delay: 0.1s; }
+.user-dropdown.active .dropdown-item:nth-child(3) { animation-delay: 0.15s; }
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects for better UX */
+.user-avatar {
+    position: relative;
+}
+
+.user-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.user-avatar:hover::after {
+    opacity: 0.2;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.2s ease;
+}

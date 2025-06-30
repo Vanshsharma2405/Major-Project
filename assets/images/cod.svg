@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="30" fill="#f0f0f0" stroke="#333" stroke-width="2"/>
+  <path d="M20,20h24v24H20z" fill="#4caf50" opacity="0.8"/>
+  <path d="M32,20v24" stroke="#fff" stroke-width="2"/>
+  <path d="M20,32h24" stroke="#fff" stroke-width="2"/>
+  <circle cx="32" cy="32" r="6" fill="#fff"/>
+  <path d="M28,40h8l4,8H24z" fill="#333"/>
+  <text x="32" y="16" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="8" fill="#333">CASH</text>
+  <text x="32" y="52" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="8" fill="#333">ON DELIVERY</text>
+</svg>

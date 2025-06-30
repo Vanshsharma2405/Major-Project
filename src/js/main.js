@@ -1,12 +1,79 @@
-import '../styles/style.css';  
+import '../styles/style.css';
 import Lenis from 'lenis';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Swiper from 'swiper';
 import 'swiper/css';
+import { initCart } from './cart.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let tl = gsap.timeline();
+
+// Loader animation
+// function loaderAnimation() {
+//   // Disable scrolling by adding the no-scroll class
+//   document.body.classList.add('no-scroll');
+
+//   // Animate the text elements
+//   tl.from('#loader h3', {
+//     x: 30,
+//     opacity: 0,
+//     delay: .5,
+//     duration: 1.2,
+//     ease: "power2.out",
+//     stagger: 0.1,
+//   });
+
+//   // After loading is complete
+//   tl.to('#loader h3', {
+//     opacity: 0,
+//     duration: 2,
+//     stagger: -0.1,
+//     delay: 1,
+//   });
+
+//   // Hide the loading bar and text
+//   tl.to('#loader', {
+//     opacity: 0,
+//     y: 700,
+//     ease: "power2.inOut",
+//     duration: .7,
+//   }, );
+
+//   // Finally hide the entire loader
+//   tl.to('.loading', {
+//     duration: 1,
+//     ease: "power2.inOut",
+//     opacity: 0,
+//     onComplete: function() {
+//       // Remove no-scroll class to enable scrolling
+//       document.body.classList.remove('no-scroll');
+//       // Hide loader completely
+//       document.querySelector('.loading').style.display = 'none';
+//     },
+//   });
+// }
+// loaderAnimation();
+
+// // Landing page animation
+// function landingPageAnimation() {
+//   tl.from("#page1-part1 h1 span", {
+//     duration: .5,
+//     opacity: 0,
+//     y: 100,
+//     ease: "back.out",
+//     stagger: .1,
+//   });
+//   tl.from("#page1-part1 img", {
+//     duration: 1,
+//     opacity: 0,
+//     scale: 1,
+//     ease: "power2.out",
+//     stagger: 0.1,
+//   });
+// }
+// landingPageAnimation();
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: "auto", // or use a number like 3 or 4
   spaceBetween: -50,
@@ -16,19 +83,38 @@ var swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
 });
+
 let cursr = document.querySelector("#cursor");
 let footer = document.querySelector('footer');
 let page1 = document.querySelector("#page1");
-let pageImg = document.querySelector("#page2 .promo img");
-let promoVid = document.querySelector("#page2 .promo video");
-page1.addEventListener("mousemove",function(dets){
-          gsap.to(cursr,{
-            x: dets.x,
-            y: dets.y,
-            duration:.7,
-            ease: "back.out",
-          })
-})
+
+
+
+// Navbar scroll feature
+function navBarScrollAnimation() {
+  let lastScrollTop = 0;
+  window.addEventListener("scroll", function() {
+    let navbar = document.querySelector("nav");
+    let currentScroll = window.pageYOffset;
+    if (currentScroll > lastScrollTop) {
+      navbar.style.top = "-90px"; // Hide navbar
+    } else {
+      navbar.style.top = "0"; // Show navbar
+    }
+    lastScrollTop = currentScroll;
+  });
+}
+navBarScrollAnimation();
+
+page1.addEventListener("mousemove", function(dets) {
+  gsap.to(cursr, {
+    x: dets.x,
+    y: dets.y,
+    duration: .7,
+    ease: "back.out",
+  });
+});
+
 footer.addEventListener("mouseenter", () => {
   cursr.style.display = "none";
   cursr.style.scale = 0;
@@ -60,271 +146,127 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-let tl = gsap.timeline();
-// let tl3 = gsap.timeline();
-//loader animation
-// var tl2 = gsap.timeline();
-function loaderAnimation() {
-  // Disable scrolling by adding the no-scroll class
-  document.body.classList.add('no-scroll');
 
-  // Animate the text elements
-  tl.from('#loader h3', {
-    x: 40,
-    opacity: 0,
-    delay: .5,
-    duration: 1,
-    stagger: 0.1,
-  });
 
-  // After loading is complete
-  tl.to('#loader h3', {
-    opacity: 0,
-    duration: 1,
-    stagger: -0.1,
-    delay: 1,
-  });
 
-  // Hide the loading bar and text
-  tl.to('#loader', {
-    opacity: 0,
-    duration: 0.5,
-  }, "-=0.5");
+// Handle URL hash navigation for smooth scrolling to sections
+function handleHashNavigation() {
+  // Check if there's a hash in the URL when page loads
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1); // Remove the # symbol
+    const targetElement = document.getElementById(targetId);
 
-  // Finally hide the entire loader
-  tl.to('.loading', {
-    duration: 1,
-    ease: "power2.inOut",
-    opacity: 0,
-    onComplete: function() {
-      // Remove no-scroll class to enable scrolling
-      document.body.classList.remove('no-scroll');
-      // Hide loader completely
-      document.querySelector('.loading').style.display = 'none';
-    },
-  });
+    if (targetElement) {
+      // Wait for page to fully load and animations to complete
+      setTimeout(() => {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 2000); // Wait 2 seconds for loader animation to complete
+    }
+  }
 }
-loaderAnimation();
-//landing page animation
-function landingPageAnimation() {
-  tl.from("#page1-part1 h1 span", {
-    duration: 1,
-    opacity: 0,
-    y: 100,
-    ease: "back.out",
-    stagger: .1,
-  });
-  tl.from("#page1-part1 img", {
-    duration: 1,
-    opacity: 0,
-    scale: 1,
-    ease: "power2.out",
-    stagger: 0.1,
-  });
-}
-landingPageAnimation();
 
-// page2 animation
-// function page2Animation() {
-//   pageImg.addEventListener('mouseenter',() => {
-//     promoVid.play();
-//     pageImg.style.display = "none";
-//     promoVid.style.display = "initial";
-//     promoVid.style.scale = "1";
-//   })
-//   pageImg.addEventListener('mouseleave',() => {
-//     promoVid.pause();
-//     pageImg.style.display = "initial";
-//     promoVid.style.display = "none";
-//     promoVid.currentTime = 0;
-//   })
-// }
-// page2Animation();
+// Initialize hash navigation
+handleHashNavigation();
 
-// Navbar scroll feature
-function navBarScrollAnimation() {
-  let lastScrollTop = 0;
-  window.addEventListener("scroll", function() {
-    let navbar = document.querySelector("nav");
-    let currentScroll = window.pageYOffset;
-    if (currentScroll > lastScrollTop) {
-      navbar.style.top = "-60px"; // Hide navbar
+// Page2 video hover functionality
+const promoSections = document.querySelectorAll('#page2 .promo');
+
+// Add hover functionality to each promo section in page2
+promoSections.forEach(promoSection => {
+  // Get the main image (not the logo image)
+  const images = promoSection.querySelectorAll('img');
+  let mainImg = null;
+
+  // Find the main image (not the logo)
+  if (images.length > 0) {
+    // If there's an AirMaxLogo, use the other image
+    const airMaxLogo = promoSection.querySelector('#AirMaxLogo');
+    if (airMaxLogo) {
+      // Find the image that is not the logo
+      for (let i = 0; i < images.length; i++) {
+        if (images[i].id !== 'AirMaxLogo') {
+          mainImg = images[i];
+          break;
+        }
+      }
     } else {
-      navbar.style.top = "0"; // Show navbar
+      // Just use the first image if there's no logo
+      mainImg = images[0];
     }
-    lastScrollTop = currentScroll;
+  }
+
+  const mouseVideo = promoSection.querySelector('.mouse-video');
+  const video = mouseVideo ? mouseVideo.querySelector('video') : null;
+
+  if (mainImg && mouseVideo && video) {
+    // Show video on hover
+    mainImg.addEventListener('mouseenter', () => {
+      // Make sure we're only affecting this specific promo section
+      mouseVideo.classList.add('active');
+      if (video.paused) {
+        video.play();
+      }
+    });
+
+    // Hide video when mouse leaves
+    mainImg.addEventListener('mouseleave', () => {
+      mouseVideo.classList.remove('active');
+      video.pause();
+    });
+  }
+});
+
+// Get the image-a element for the original mouse follower functionality
+let imageA = document.querySelector('.image-a img');
+const follower = document.querySelector('.image-a .mouse-follower');
+
+if (imageA) {
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+  let animationFrame;
+
+  function animateFollower() {
+    const speed = 0.1;
+    currentX += (mouseX - currentX) * speed;
+    currentY += (mouseY - currentY) * speed;
+
+    follower.style.left = `${currentX}px`;
+    follower.style.top = `${currentY}px`;
+
+    animationFrame = requestAnimationFrame(animateFollower);
+  }
+
+  function updateTargetPosition(e) {
+    const rect = imageA.getBoundingClientRect();
+    mouseX = e.clientX - rect.left - follower.offsetWidth / 2;
+    mouseY = e.clientY - rect.top - follower.offsetHeight / 2;
+  }
+
+  imageA.addEventListener('mouseenter', (e) => {
+    follower.classList.add('active');
+    updateTargetPosition(e);
+    cancelAnimationFrame(animationFrame);
+    animateFollower();
+  });
+
+  imageA.addEventListener('mousemove', (e) => {
+    updateTargetPosition(e);
+  });
+
+  imageA.addEventListener('mouseleave', () => {
+    follower.classList.remove('active');
+    cancelAnimationFrame(animationFrame);
   });
 }
-navBarScrollAnimation();
-
-
-
-// Promo play button functionality
-let flag = 0;
-let shop = document.querySelector("#shop");
-let cartBtn = document.querySelector(".cart");
-
-const promo = document.querySelector('.promo');
-    const follower = document.getElementById('mouseFollower');
-
-    let mouseX = 0, mouseY = 0;
-    let currentX = 0, currentY = 0;
-    let animationFrame;
-
-    function animateFollower() {
-      const speed = 0.1;
-      currentX += (mouseX - currentX) * speed;
-      currentY += (mouseY - currentY) * speed;
-
-      follower.style.left = `${currentX}px`;
-      follower.style.top = `${currentY}px`;
-
-      animationFrame = requestAnimationFrame(animateFollower);
-    }
-
-    function updateTargetPosition(e) {
-      const rect = imageA.getBoundingClientRect();
-      mouseX = e.clientX - rect.left - follower.offsetWidth / 2;
-      mouseY = e.clientY - rect.top - follower.offsetHeight / 2;
-    }
-
-    imageA.addEventListener('mouseenter', (e) => {
-      follower.classList.add('active');
-      updateTargetPosition(e);
-      cancelAnimationFrame(animationFrame);
-      animateFollower();
-    });
-
-    imageA.addEventListener('mousemove', (e) => {
-      updateTargetPosition(e);
-    });
-
-    imageA.addEventListener('mouseleave', () => {
-      follower.classList.remove('active');
-      cancelAnimationFrame(animationFrame);
-    });
-
-// Animation for promo video
-// tl.from("#promo video",{
-//     duration: 1.5,
-//     opacity: 0,
-//     y: 100,
-//     ease: "power5.out",
-//     delay:.5,
-//     stagger:5,
-//     scrollTrigger:{
-//         trigger:"#promo",
-//         start:"top 80%",
-//         end:"top 50%",
-//         scrub:1,
-//     }
-// })
-
-// Animation for promo text and button
-
-// JSON data for shoe cards
-// let shoeCard = [
-//   {
-//     name:"Nike Cortez Leather",
-//     gender:"Women's shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/236a53ed-106f-44bb-855d-05abab45f414/W+NIKE+CORTEZ.png",
-//     price:139
-//   },
-//   {
-//     name:"Nike Dunk Low Retro",
-//     gender:"Men's shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/dbd2620b-a99f-4279-97db-0344edf84e31/NIKE+DUNK+LOW+RETRO.png",
-//     price:165
-//   },
-//   {
-//     name:"Nike Cortez",
-//     gender:"Women's shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c7ef8fe0-cdbd-4033-b613-debf06a95aa7/W+NIKE+CORTEZ.png",
-//     price:145
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6ee3bfc0-d21d-4315-a989-4abf91e18ade/JORDAN+TATUM+3+PF.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-//   {
-//     name:"Sabrina 2 'Stronger Than Gold' EP",
-//     gender:"Basketball shoe",
-//     image:"https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/6c930f60-8219-41f1-9b08-52b65062f9c5/SABRINA+2++NRG+EP.png",
-//     price:219
-//   },
-// ];
-
-// // Generate HTML for shoe cards
-// var sum = '';
-// shoeCard.forEach((elem) => {
-//   sum += `
-//   <div class="swiper-slide">
-//    <div class="trend-card">
-//         <div class="card-upper">
-//               <img loading="lazy" src="${elem.image}" alt="">
-//         </div>
-//             <div class="card-lower">
-//                 <h3>${elem.name}</h3>
-//                 <h3 class="gender">${elem.gender}</h3>
-//                 <h3 class="price">$${elem.price}</h3>
-//             </div>
-//     </div>
-//   </div>
-//   `
-// })
-
-
-// var trending = document.querySelector("#page3 .mySwiper");
-// trending.innerHTML = sum;
 
 let twitterIcon = document.querySelector(".social-icons #twitter");
 let facebookIcon = document.querySelector(".social-icons #facebook");
 let instagramIcon = document.querySelector(".social-icons #instagram");
 let youtubeIcon = document.querySelector(".social-icons #youtube");
+
 twitterIcon.addEventListener('click', () => {
   location.href = "https://twitter.com/Nike";
 });
@@ -337,33 +279,60 @@ instagramIcon.addEventListener('click', () => {
 youtubeIcon.addEventListener('click', () => {
   location.href = "https://www.youtube.com/@nike";
 });
+
 let trendingBtn = document.querySelector("#page4 .page4-grid #image-a-content button");
-trendingBtn.addEventListener('mouseenter', () => {
-  cursr.style.display = "none";
-  cursr.style.opacity = "0";
-});
-trendingBtn.addEventListener('mouseleave', () => {
-  cursr.style.display = "initial";
-  cursr.style.opacity = "1";
-});
-function cartHoverDesgin(){
-  cartBtn.addEventListener('mouseenter',() => {
-    cartBtn.style.backgroundColor = "#111";
-    cartBtn.style.color = "#fff";
-    cartBtn.style.scale = "1";
-    cartBtn.style.padding = "5px"
-    cartBtn.style.borderRadius = "50%";
-    cartBtn.style.transition = "all 0.3s ease-in-out";
-  })
-  cartBtn.addEventListener('mouseleave',() => {
-    cartBtn.style.backgroundColor = "#fff";
-    cartBtn.style.color = "#111";
-    cartBtn.style.scale = "1";
 
-  })
+// Add click event to the Shop button to navigate to men's collection section
+trendingBtn.addEventListener('click', () => {
+  // Navigate to men.html and scroll to the collection section
+  window.location.href = './Pages/men.html#mens-collection';
+});
+
+// Check if we need to show a specific product from URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('product');
+
+// Function to find a product by ID
+function findProductById(id) {
+  // This function should return the product object if found, or null if not
+  // You can replace this with your actual product data source
+  const products = [
+    { id: 'p16', name: 'React Presto', image: './assets/images/nike shoe.png', price: 12995 },
+    // Add more products as needed
+  ];
+  return products.find(product => product.id === id);
 }
-cartHoverDesgin();
 
+// Function to show product details
+function showProductDetails(product) {
+  // This function should display the product details in the UI
+  // You can replace this with your actual implementation
+  console.log('Showing product details:', product);
+  // Add your code here to update the UI with the product details
+}
 
+// Check if we need to show a specific product from URL parameter
+if (productId) {
+  const selectedProduct = findProductById(productId);
+  if (selectedProduct) {
+    // Show the product details after a short delay to allow animations to complete
+    setTimeout(() => {
+      showProductDetails(selectedProduct);
+    }, 500);
+  }
+}
 
+// Initialize cart functionality immediately and also on DOMContentLoaded
+// This ensures the cart is initialized even when navigating between pages
+initCart();
 
+// Also initialize on DOMContentLoaded for safety
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize cart functionality again to ensure it's properly set up
+  initCart();
+
+  // Check if user is authenticated
+  checkAuth();
+
+  // Note: User icon click event is now handled in auth-ui.js
+});

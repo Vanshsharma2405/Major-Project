@@ -1,0 +1,731 @@
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// Variables
+:root {
+  --primary-color: #111;
+  --secondary-color: #4361ee;
+  --accent-color: #3a56d4;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+  --warning-color: #ff9800;
+  --light-bg: #f8f9fa;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --dark-bg: #2c2c2c;
+  --red-primary: #ff4757;
+  --blue-link: #6366f1;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Reset and Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+  overflow: hidden;
+}
+main{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  // Login Container
+  .login-container {
+  border-radius: 1rem;
+  display: flex;
+  width: 80vw;
+  height: 90vh;
+  overflow: hidden;
+  background: white;
+}
+
+// Left Section - Dark with Animated Shoe
+.left-section {
+  flex: 1;
+  background: var(--dark-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+
+  .brand-header {
+    h1 {
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  .shoe-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    // Add background effects like men's page
+    &::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 77, 77, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 6s infinite alternate ease-in-out;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 8s infinite alternate-reverse ease-in-out;
+    }
+
+    .animated-shoe {
+      max-width: 100%;
+      width: 350px;
+      height: auto;
+      transform: rotate(-15deg);
+      transition: var(--transition);
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.25));
+      animation: float 6s infinite ease-in-out;
+
+      &:hover {
+        transform: rotate(-10deg) scale(1.05);
+      }
+    }
+  }
+
+  .brand-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .brand-info {
+      h3 {
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+      }
+    }
+
+    .limited-offer {
+      display: flex;
+      align-items: center;
+      img{
+        width: 6.2rem;
+        height: 6rem;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+// Animation keyframes matching men's page exactly
+@keyframes float {
+  0% {
+    transform: rotate(-15deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(-12deg) translateY(-15px);
+  }
+  100% {
+    transform: rotate(-15deg) translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+// Right Section - Login Form
+.right-section {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+  max-width: 500px;
+
+  .language-selector {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-600);
+    cursor: pointer;
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    i {
+      font-size: 12px;
+    }
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .form-header {
+    margin-bottom: 40px;
+    text-align: left;
+    margin-bottom: -.2rem;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-top: 16px;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    p {
+      color: var(--gray-600);
+      font-size: 16px;
+      line-height: 1.5;
+      margin-top: -.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Form Container
+.form-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// Auth Forms
+.auth-form {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+
+  &.active {
+    display: block;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Form Groups
+.form-group {
+  position: relative;
+  margin-bottom: 24px;
+  margin-top: -.2rem;
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+    margin-bottom: 4px;
+  }
+
+  input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    background: #f8f9fa;
+
+    &::placeholder {
+      color: var(--gray-500);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      background: white;
+    }
+  }
+}
+
+// Checkbox fields (Remember me & Terms)
+.remember-field, .terms-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  margin-top: -8px;
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-700);
+    cursor: pointer;
+    input[type="checkbox"] {
+      margin-right: 8px;
+      accent-color: var(--red-primary);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    a {
+      color: var(--blue-link);
+      text-decoration: underline;
+      margin-left: 4px;
+    }
+  }
+}
+
+// Password Field Specific Styles
+.password-field {
+  .password-input-container {
+    position: relative;
+    display: flex; 
+    flex-direction: column;
+    color: var(--error-color);
+    align-items: left;
+  }
+
+  input {
+    width: 100%;
+    padding: 16px 50px 16px 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: var(--transition);
+    background: #f8f9fa;
+
+    &::placeholder {
+      color: var(--gray-500);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      background: white;
+    }
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: var(--transition);
+    z-index: 10;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+
+    i {
+      display: block;
+    }
+  }
+}
+
+// Forgot Link
+.forgot-link {
+  margin-bottom: 24px;
+
+  a {
+    color: var(--blue-link);
+    text-decoration: none;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Login Button
+.login-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--red-primary);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 24px;
+
+  &:hover {
+    background: #ff3742;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Signup Link
+.signup-link {
+  text-align: center;
+  color: var(--gray-600);
+  font-size: 14px;
+  margin-top: -.5rem;
+
+  a {
+    color: var(--red-primary);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .left-section {
+    flex: none;
+    height: 40vh;
+    padding: 20px;
+
+    .shoe-container {
+      .animated-shoe {
+        width: 200px;
+      }
+    }
+
+    .brand-footer {
+      .brand-info {
+        h3 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 12px;
+        }
+      }
+
+      .social-icons {
+        .social-btn {
+          width: 35px;
+          height: 35px;
+
+          i {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .right-section {
+    flex: none;
+    padding: 20px;
+
+    .form-header {
+      margin-top: 20px;
+      margin-bottom: 30px;
+
+      h1 {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .left-section {
+    height: 35vh;
+    padding: 15px;
+
+    .brand-header h1 {
+      font-size: 20px;
+    }
+
+    .shoe-container .animated-shoe {
+      width: 150px;
+    }
+  }
+
+  .right-section {
+    padding: 15px;
+
+    .form-header {
+      h1 {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    input {
+      padding: 14px;
+      font-size: 14px;
+    }
+  }
+
+  .password-field input {
+    padding: 14px 45px 14px 14px;
+  }
+
+  .google-btn,
+  .login-btn {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+
+// Loading Overlay
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+
+  &.active {
+    display: flex;
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Notification Container
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  max-width: 400px;
+}
+
+.notification {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: slideIn 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+
+  &.success {
+    border-left-color: var(--success-color);
+
+    .notification-icon {
+      color: var(--success-color);
+    }
+  }
+
+  &.error {
+    border-left-color: var(--error-color);
+
+    .notification-icon {
+      color: var(--error-color);
+    }
+  }
+
+  &.warning {
+    border-left-color: var(--warning-color);
+
+    .notification-icon {
+      color: var(--warning-color);
+    }
+  }
+
+  &.info {
+    border-left-color: var(--secondary-color);
+
+    .notification-icon {
+      color: var(--secondary-color);
+    }
+  }
+
+  .notification-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .notification-content {
+    flex: 1;
+
+    .notification-title {
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 2px;
+    }
+
+    .notification-message {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+
+  .notification-close {
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--gray-700);
+    }
+  }
+
+  .notification-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.3;
+    animation: progress 5s linear forwards;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+}
+

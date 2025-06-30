@@ -28,7 +28,10 @@ export default defineConfig({
       },
       input:{
         main: resolve(__dirname, 'index.html'),
-        men: resolve(__dirname, 'Pages/men.html')
+        men: resolve(__dirname, 'Pages/men.html'),
+        women: resolve(__dirname,'Pages/women.html'),
+        kid: resolve(__dirname, 'Pages/kids.html'),
+        about: resolve(__dirname, 'Pages/about.html')
       }
     }
   },
