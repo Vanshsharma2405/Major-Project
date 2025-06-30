@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from 'lenis';
 import { sharedProducts, findProductById } from './shared-products';
 import { initCart, addToCart, showToast } from './cart';
+import 'remixicon/fonts/remixicon.css';
 
 
 // Register GSAP plugins

@@ -2,6 +2,7 @@
 /* Import base styles */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap");
+@import 'remixicon/fonts/remixicon.css';
 @font-face {
   font-family: "Gilroy-Regular";
   src: url("./assets/fonts/Gilroy-Regular.ttf");
@@ -97,12 +98,14 @@ main header nav #nav-last {
   justify-content: center;
   margin-right: 3rem;
   flex-wrap: nowrap;
+  transition: all 0.3s ease;
 }
 main header nav #nav-last #search-bar {
   display: flex;
   border-radius: 50px;
   border: 2px solid #111;
   width: 100%;
+  transition: all 0.3s ease;
 }
 main header nav #nav-last #search-bar i {
   font-size: 1.3em;
@@ -123,12 +126,25 @@ main header nav #nav-last #search-bar #nav-search {
   outline: none;
   background-color: transparent;
   color: black;
+  transition: width 0.3s ease;
 }
 main header nav #nav-last #search-bar #nav-search:active {
   background-color: transparent;
 }
 main header nav #nav-last #search-bar #nav-search::-webkit-search-cancel-button {
   cursor: pointer;
+}
+main header nav #nav-last.user-logged-in #search-bar {
+  width: calc(100% + 120px);
+}
+main header nav #nav-last.user-logged-in #search-bar #nav-search {
+  width: calc(12vw + 120px);
+}
+main header nav #nav-last.user-logged-out #search-bar {
+  width: 100%;
+}
+main header nav #nav-last.user-logged-out #search-bar #nav-search {
+  width: 12vw;
 }
 main header nav #nav-last .auth-buttons {
   display: flex;
@@ -728,6 +744,16 @@ main::selection {
   color: #fff;
 }
 
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: #000000;
+}
+
 #loader {
   display: flex;
   align-items: center;
@@ -1140,6 +1166,7 @@ main::selection {
 }
 
 /* Import Google Fonts */
+/* Import Remix Icons */
 /* Variables */
 :root {
   --primary-color: #FF5757;

@@ -4,6 +4,7 @@ import { sharedProducts, findProductById } from './shared-products.js';
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from 'lenis';
+import 'remixicon/fonts/remixicon.css';
 
 const lenis = new Lenis();
 

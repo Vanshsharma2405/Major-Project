@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from 'lenis';
 import { sharedProducts } from './shared-products';
 import { initCart, addToCart } from './cart';
+import 'remixicon/fonts/remixicon.css';
 
 
 const lenis = new Lenis();
