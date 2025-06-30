@@ -17,7 +17,7 @@
     "@emailjs/browser": "^4.4.1",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
-    "remixicon": "^4.6.0",
+    "remixicon": "^2.x.x",
     "scrolltrigger": "^1.0.1",
     "swiper": "^11.2.6"
   }
