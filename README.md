@@ -75,7 +75,6 @@ StepStyle is a modern, responsive e-commerce website for shoes built with vanill
 ### Backend Integration
 - **MongoDB**: User authentication and data storage
 - **EmailJS**: Contact form email functionality
-- **Razorpay**: Payment processing integration
 
 ### Build Tools
 - **Vite**: Modern build tool and development server
