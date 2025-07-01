@@ -40,12 +40,14 @@
           <div id="user-profile" class="user-profile" style="display: none;">
             <div class="user-icon-container">
               <div class="user-avatar">
+                <img class="user-profile-image" style="display: none;" alt="Profile">
                 <i class="ph ph-user user-icon"></i>
                 <div class="user-status-dot"></div>
               </div>
               <div class="user-dropdown">
                 <div class="dropdown-header">
                   <div class="user-avatar-large">
+                    <img class="user-profile-image-large" style="display: none;" alt="Profile">
                     <i class="ph ph-user"></i>
                   </div>
                   <div class="user-info">
@@ -53,6 +55,15 @@
                     <div class="user-email"></div>
                   </div>
                 </div>
+                <div class="dropdown-divider"></div>
+                <button class="profile-picture-btn dropdown-item">
+                  <i class="ph ph-camera"></i>
+                  <span>Change Picture</span>
+                </button>
+                <button class="remove-picture-btn dropdown-item" style="display: none;">
+                  <i class="ph ph-trash"></i>
+                  <span>Remove Picture</span>
+                </button>
                 <div class="dropdown-divider"></div>
                 <button class="logout-btn dropdown-item">
                   <i class="ph ph-sign-out"></i>
@@ -63,6 +74,9 @@
           </div>
         </div>
       </nav>
+
+      <!-- Hidden file input for profile picture upload -->
+      <input type="file" id="profile-picture-input" accept="image/*" style="display: none;">
     </header>
 
     <main>
@@ -324,8 +338,9 @@
           <h3>Help</h3>
           <ul>
             <li><a href="#">Order Status</a></li>
+            <li><a href="./return-policy.html">Returns & Exchanges</a></li>
+            <li><a href="./refund-policy.html">Refund Policy</a></li>
             <li><a href="#">Shipping & Delivery</a></li>
-            <li><a href="#">Returns</a></li>
             <li><a href="#">Payment Options</a></li>
             <li><a href="#">Contact Us</a></li>
           </ul>
@@ -388,6 +403,7 @@
     <script type="module" src="../src/js/search.js"></script>
     <script type="module" src="../src/js/about.js"></script>
     <script src="../src/js/auth-ui.js"></script>
+    <script src="../src/js/profile-picture.js"></script>
     <script src="../src/js/auth-check.js"></script>
   </body>
 </html>

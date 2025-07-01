@@ -610,7 +610,7 @@ main{
 // Notification Container
 .notification-container {
   position: fixed;
-  top: 20px;
+  top: 100px; // Below navbar instead of above
   right: 20px;
   z-index: 10000;
   max-width: 400px;

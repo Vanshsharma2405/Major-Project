@@ -257,9 +257,6 @@ main .form-group input {
   transition: var(--transition);
   background: #f8f9fa;
 }
-main .form-group input::-moz-placeholder {
-  color: var(--gray-500);
-}
 main .form-group input::placeholder {
   color: var(--gray-500);
 }
@@ -311,9 +308,6 @@ main .password-field input {
   font-family: "Inter", sans-serif;
   transition: var(--transition);
   background: #f8f9fa;
-}
-main .password-field input::-moz-placeholder {
-  color: var(--gray-500);
 }
 main .password-field input::placeholder {
   color: var(--gray-500);
@@ -480,8 +474,7 @@ main .loading-overlay {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 main .loading-overlay.active {
   display: flex;
@@ -510,7 +503,7 @@ main .loading-overlay p {
 }
 main .notification-container {
   position: fixed;
-  top: 20px;
+  top: 100px;
   right: 20px;
   z-index: 10000;
   max-width: 400px;
@@ -608,4 +601,6 @@ main .notification .notification-progress {
   to {
     width: 0%;
   }
-}/*# sourceMappingURL=login.css.map */
+}
+
+/*# sourceMappingURL=login.css.map */

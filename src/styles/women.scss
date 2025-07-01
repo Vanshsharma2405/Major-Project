@@ -1121,7 +1121,7 @@ main {
 /* Comment Notification Styles */
 .comment-notification {
   position: fixed;
-  top: 20px;
+  top: 100px; // Below navbar instead of above
   right: 20px;
   background-color: var(--white);
   padding: 1rem 1.5rem;

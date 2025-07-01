@@ -372,10 +372,8 @@ function handleContactFormSubmit(e) {
     to_email: 'stepstyle2052025@gmail.com'
   };
 
-  emailjs.send('service_8gpdy3a', 'template_puwgwp7', templateParams)
-    .then(function(response) {
-      console.log('Email sent successfully!', response.status, response.text);
-
+  emailjs.send('service_8gpdy3a', 'template_pli8c3f', templateParams)
+    .then(function() {
       // Reset form
       e.target.reset();
 
@@ -386,9 +384,7 @@ function handleContactFormSubmit(e) {
       // Show success message
       showContactSuccessToast();
 
-    }, function(error) {
-      console.error('Failed to send email:', error);
-
+    }, function() {
       // Reset button
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;

@@ -1,0 +1,250 @@
+/* Terms and Conditions Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.terms-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 60px 20px 60px;
+}
+
+.terms-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.terms-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.terms-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.last-updated {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.terms-section {
+    padding: 30px 40px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.terms-section:last-of-type {
+    border-bottom: none;
+}
+
+.terms-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 15px 0;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.terms-section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin: 0 0 15px 0;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.terms-section p:last-child {
+    margin-bottom: 0;
+}
+
+.terms-section ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.terms-section li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 8px;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.contact-info {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.contact-info strong {
+    color: #2d3748;
+    font-weight: 600;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.terms-footer {
+    padding: 40px;
+    text-align: center;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.terms-footer p {
+    font-size: 1rem;
+    color: #4a5568;
+    margin: 0 0 25px 0;
+    font-weight: 500;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.signup-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: 'Helvetica Now Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.signup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+.signup-btn i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terms-container {
+        padding: 100px 15px 40px;
+    }
+    
+    .terms-content {
+        border-radius: 12px;
+    }
+    
+    .terms-header {
+        padding: 30px 20px;
+    }
+    
+    .terms-header h1 {
+        font-size: 2rem;
+    }
+    
+    .terms-section {
+        padding: 25px 20px;
+    }
+    
+    .terms-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .terms-section p,
+    .terms-section li {
+        font-size: 0.95rem;
+    }
+    
+    .terms-footer {
+        padding: 30px 20px;
+    }
+    
+    .contact-info {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .terms-section {
+        padding: 20px 15px;
+    }
+    
+    .terms-section h2 {
+        font-size: 1.2rem;
+    }
+    
+    .signup-btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+    }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(102, 126, 234, 0.2);
+    color: #2d3748;
+}
+
+/* Focus styles for accessibility */
+.signup-btn:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .terms-container {
+        background: white;
+        padding: 20px;
+    }
+    
+    .terms-content {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .terms-header {
+        background: #667eea !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .signup-btn {
+        display: none;
+    }
+}

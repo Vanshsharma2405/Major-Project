@@ -86,6 +86,11 @@ function updateUIForAuthenticatedUser() {
 
         if (userName) userName.textContent = currentUser.name;
         if (userEmail) userEmail.textContent = currentUser.email;
+
+        // Load profile picture if available
+        if (window.profilePictureManager) {
+            window.profilePictureManager.loadUserProfilePicture();
+        }
     }
 
     // Update nav-last class for search bar width adjustment
